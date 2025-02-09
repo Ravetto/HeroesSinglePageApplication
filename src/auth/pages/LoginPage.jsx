@@ -5,11 +5,13 @@ import { AuthContext } from '../context'
 export const LoginPage = () => {
   const { login } = useContext(AuthContext)
   const navigate = useNavigate()
+
   const onLogin = () => {
+    const lastPath = localStorage.getItem('lastPath') || '/'
     login('Leandro Ravetto')
-    navigate('/', {
+    navigate( lastPath, {
       replace: true
-    })
+    } )
   }
   return (
     <div className="container mt-5">
